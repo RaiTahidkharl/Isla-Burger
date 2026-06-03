@@ -1,30 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { X, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { businessInfo } from '../data/mock';
 
 const CartDrawer = ({ open, onClose, items = [], onInc, onDec, onRemove }) => {
   const { t } = useLanguage();
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const [deliveryModalOpen, setDeliveryModalOpen] = useState(false);
-  const [customerName, setCustomerName] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [notes, setNotes] = useState('');
-
-  const resetCheckout = () => {
-    setCheckoutOpen(false);
-    setDeliveryModalOpen(false);
-    setCustomerName('');
-    setAddress('');
-    setPhone('');
-    setNotes('');
-  };
-
-  const handleClose = () => {
-    resetCheckout();
-    onClose();
-  };
+  const handleClose = () => onClose();
 
   const total = items.reduce((sum, it) => {
     const num = parseFloat(it.price.replace(/[^\d.]/g, '')) || 0;
@@ -110,116 +90,16 @@ const CartDrawer = ({ open, onClose, items = [], onInc, onDec, onRemove }) => {
               <span className="font-bold text-[#1A1206]/70">{t.cart.total}</span>
               <span className="font-display text-3xl text-[#D62828]">€{total.toFixed(2)}</span>
             </div>
-            {!checkoutOpen ? (
-              <button
-                type="button"
-                onClick={() => setCheckoutOpen(true)}
-                className="w-full btn-3d justify-center text-center"
-              >
-                Checkout
-              </button>
-            ) : (
-              <div className="space-y-4">
-                <div className="rounded-3xl border border-[#FCE4B6] bg-white p-4 shadow-sm">
-                  <div className="font-bold text-lg text-[#1A1206] mb-3">Checkout details</div>
-                  <label className="block text-sm text-[#1A1206]/80 mb-2">
-                    Customer Name
-                    <input
-                      value={customerName}
-                      onChange={(e) => setCustomerName(e.target.value)}
-                      className="mt-1 w-full rounded-2xl border border-[#F1E0C9] bg-[#FFF8E7] p-3 text-sm"
-                      placeholder="Your name"
-                    />
-                  </label>
-                  <label className="block text-sm text-[#1A1206]/80 mb-2">
-                    Delivery Address
-                    <input
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      className="mt-1 w-full rounded-2xl border border-[#F1E0C9] bg-[#FFF8E7] p-3 text-sm"
-                      placeholder="Street, city, postal code"
-                    />
-                  </label>
-                  <label className="block text-sm text-[#1A1206]/80 mb-2">
-                    Phone Number (optional)
-                    <input
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="mt-1 w-full rounded-2xl border border-[#F1E0C9] bg-[#FFF8E7] p-3 text-sm"
-                      placeholder="+33 6 12 34 56 78"
-                    />
-                  </label>
-                  <label className="block text-sm text-[#1A1206]/80">
-                    Notes
-                    <textarea
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      className="mt-1 w-full min-h-[90px] rounded-2xl border border-[#F1E0C9] bg-[#FFF8E7] p-3 text-sm resize-none"
-                      placeholder="Any special requests"
-                    />
-                  </label>
-                </div>
-                <button
-                  type="button"
-                  disabled={!customerName.trim() || !address.trim()}
-                  onClick={() => setDeliveryModalOpen(true)}
-                  className="w-full btn-3d justify-center text-center disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Confirm order
-                </button>
-                {(!customerName.trim() || !address.trim()) && (
-                  <p className="text-xs text-[#1A1206]/70 mt-2">Please enter your name and address before confirming.</p>
-                )}
-                <button
-                  type="button"
-                  onClick={() => setCheckoutOpen(false)}
-                  className="w-full rounded-2xl border border-[#FCE4B6] bg-white py-3 text-sm font-semibold text-[#1A1206]"
-                >
-                  Back to cart
-                </button>
-              </div>
-            )}
+            <button
+              type="button"
+              className="w-full btn-3d justify-center text-center"
+            >
+              {t.cart.checkout}
+            </button>
           </div>
         )}
       </aside>
 
-      {deliveryModalOpen && (
-        <>
-          <div
-            onClick={() => setDeliveryModalOpen(false)}
-            className="fixed inset-0 bg-black/30 z-[96]"
-          />
-          <div className="fixed left-0 right-0 bottom-0 z-[97] rounded-t-3xl bg-[#FFFBF1] border-t-2 border-[#FCE4B6] p-5 shadow-2xl">
-            <div className="mx-auto mb-5 h-1.5 w-16 rounded-full bg-[#D62828]/30" />
-            <div className="mb-4 text-center">
-              <div className="font-bold text-xl text-[#1A1206]">Choose Delivery Method</div>
-              <p className="text-sm text-[#1A1206]/70 mt-1">Send your order to Isla Burger</p>
-            </div>
-            <div className="space-y-3">
-              <a
-                href={businessInfo.uberEats}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full rounded-3xl bg-[#1A1206] py-4 text-center text-sm font-bold text-white shadow-lg hover:bg-[#E63946] transition-colors"
-              >
-                🚗 Order via Uber
-              </a>
-              <a
-                href={`https://wa.me/${businessInfo.phoneTel.replace(/[^\d]/g, '')}?text=${encodeURIComponent(
-                  `🍔 *New Order - Isla Burger*\n\n📋 *Items:*\n${items
-                    .map(item => `- ${item.name} x${item.qty} — ${item.price}`)
-                    .join('\n')}\n\n💰 *Total: €${total.toFixed(2)}*\n\n📍 *Address:* ${address}\n👤 *Name:* ${customerName}${phone ? `\n📞 *Phone:* ${phone}` : ''}${notes ? `\n📝 *Notes:* ${notes}` : ''}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full rounded-3xl bg-[#25D366] py-4 text-center text-sm font-bold text-white shadow-lg hover:bg-[#1ebe58] transition-colors"
-              >
-                💬 Order via WhatsApp
-              </a>
-            </div>
-          </div>
-        </>
-      )}
     </>
   );
 };
