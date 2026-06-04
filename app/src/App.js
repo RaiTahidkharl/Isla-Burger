@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import { ToastProvider, Toaster } from './components/ui/toaster';
 import { LanguageProvider } from './context/LanguageContext';
+import { businessInfo } from './data/mock';
 
 const Home = () => {
   const [cart, setCart] = useState([]);
@@ -52,6 +53,7 @@ const Home = () => {
         onInc={inc}
         onDec={dec}
         onRemove={removeItem}
+        uberEatsUrl={businessInfo.uberEats}
       />
       <Toaster />
     </div>
