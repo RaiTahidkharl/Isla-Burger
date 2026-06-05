@@ -64,7 +64,7 @@ export const menuItems = {
       name: 'Cheeseburger',
       description: 'Juicy beef patty, melted cheese, fresh toppings in a soft bun.',
       price: '\u20AC6.90',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+      image: '/menu/01 ISLA BURGER - CHEESEBURGER def.jpg',
       badge: 'BEST SELLER',
       rating: 4.7
     },
@@ -84,7 +84,7 @@ export const menuItems = {
       name: 'Cheeseburger',
       description: 'Juicy beef patty, melted cheese, fresh lettuce, tomato and sauce.',
       price: '\u20AC6.90',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+      image: '/menu/01 ISLA BURGER - CHEESEBURGER def.jpg',
       rating: 4.7
     },
     {

@@ -129,6 +129,22 @@
   box-shadow: 0 2px 0 #7A0D17, 0 8px 16px -6px rgba(122,13,23,.6);
 }
 
+.menu-add-button {
+  background: #1A1206 !important;
+  color: #FFF8E7 !important;
+  box-shadow: 0 6px 0 #000, 0 14px 24px -10px rgba(0,0,0,.55) !important;
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+}
+.menu-add-button:hover {
+  background: #000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #000, 0 18px 30px -12px rgba(0,0,0,.6) !important;
+}
+.menu-add-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #000, 0 8px 16px -8px rgba(0,0,0,.6) !important;
+}
+
 .btn-3d-amber {
   background: linear-gradient(180deg, #FFB627 0%, #F77F00 100%);
   color: #1A1206;
