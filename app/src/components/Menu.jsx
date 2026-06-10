@@ -195,16 +195,56 @@ const menuCopy = {
   }
 };
 
-const imageByCategory = {
-  burgers: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
-  wraps: 'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
-  naan: 'https://images.unsplash.com/photo-1601050690597-df0568f70950',
-  chicken: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f',
-  palau: 'https://images.unsplash.com/photo-1596797038530-2c107229654b',
-  salads: 'https://images.unsplash.com/photo-1546793665-c74683f339c1',
-  buckets: 'https://images.unsplash.com/photo-1608039755401-742074f0548d',
-  kids: 'https://images.unsplash.com/photo-1550547660-d9450f859349',
-  fries: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752'
+const menuAsset = (file) => `/menu/cutouts/${file}`;
+const remoteFoodImage = (url, id) => `${url}?auto=format&fit=crop&w=900&q=85&sig=isla-${id}`;
+
+const imageByItem = {
+  'cheese-burger': menuAsset('01 ISLA BURGER - CHEESEBURGER def.png'),
+  'double-cheese-burger': menuAsset('02 ISLA BURGER - DOUBLE CHEESEBURGER def.png'),
+  'triple-cheese-burger': menuAsset('03 ISLA BURGER - TRIPLE CHEESEBURGER def.png'),
+  'ib-supreme': menuAsset('04 ISLA BURGER - IBI SUPREME def.png'),
+  'cheezy-bacon': menuAsset('05 ISLA BURGER - CHEEZY BACON def.png'),
+  'country-max': menuAsset('06 ISLA BURGER - COUNTRY MAX def.png'),
+  'pak-burger-classic': menuAsset('07 ISLA BURGER - PAK BURGER CLASSIC def.png'),
+  'big-tasty': menuAsset('09 ISLA BURGER - BIG TASTY def.png'),
+  'spicy-beef-burger': menuAsset('12 ISLA BURGER - SPICY BEEF BURGER  def.png'),
+  'chicken-burger': menuAsset('15 ISLA BURGER - CHICKEN BURGER def.png'),
+  'chicken-royal': menuAsset('21 ISLA BURGER - LARGE CHICKEN def.png'),
+  'fish-burger': menuAsset('22 ISLA BURGER - FISH BURGER def.png'),
+  'sandwich-kebab': remoteFoodImage('https://images.unsplash.com/photo-1529006557810-274b9b2fc783', 'sandwich-kebab'),
+  'kebab-wrap': remoteFoodImage('https://images.unsplash.com/photo-1626700051175-6818013e1d4f', 'kebab-wrap'),
+  'chicken-wrap': menuAsset('29 ISLA BURGER - CHICKEN WRAP def.png'),
+  'tikka-wrap': menuAsset('24 ISLA BURGER - TIKKA BAGUETTE def.png'),
+  'naan-kofta': menuAsset('31 ISLA BURGER - SANDWICH NAAN KOFTA def.png'),
+  'naan-mix': menuAsset('38 ISLA BURGER - SANDWICH MIXTE def.png'),
+  'naan-kebab': menuAsset('37 ISLA BURGER - SANDWICH KOFTA MEX.png'),
+  'naan-grill-tikka': menuAsset('26 ISLA BURGER - CHICKEN STAR def.png'),
+  'sandwich-curry': menuAsset('39 ISLA BURGER - SANDWICH CURRY.png'),
+  'sandwich-supreme': menuAsset('40 ISLA BURGER - SANDWICH SUPREME def.png'),
+  'chicken-mixte': remoteFoodImage('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58', 'chicken-mixte'),
+  'hot-spicy-wings': remoteFoodImage('https://images.unsplash.com/photo-1608039755401-742074f0548d', 'hot-spicy-wings'),
+  '3x-chicken': remoteFoodImage('https://images.unsplash.com/photo-1567620832903-9fc6debc209f', '3x-chicken'),
+  'chicken-tenders': remoteFoodImage('https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg', 'chicken-tenders'),
+  'chicken-nuggets': remoteFoodImage('https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg', 'chicken-nuggets'),
+  'chicken-pop-corn': remoteFoodImage('https://images.pexels.com/photos/6061645/pexels-photo-6061645.jpeg', 'chicken-pop-corn'),
+  'chicken-tikka': menuAsset('20 ISLA BURGER - SUPREME POULET PARMESAN.png'),
+  'samosas': remoteFoodImage('https://images.unsplash.com/photo-1601050690597-df0568f70950', 'samosas'),
+  'tikka-palau': menuAsset('50 ISLA BURGER - TIKKA PALAU def.png'),
+  'chicken-palau': menuAsset('51 ISLA BURGER - CHICKEN PALAU def.png'),
+  'kebab-palau': menuAsset('52 ISLA BURGER - KEBAB PALAU def.png'),
+  'palau-2-viandes': remoteFoodImage('https://images.unsplash.com/photo-1596797038530-2c107229654b', 'palau-2-viandes'),
+  'salade-caesar': remoteFoodImage('https://images.unsplash.com/photo-1546793665-c74683f339c1', 'salade-caesar'),
+  'kebab-salade': menuAsset('55 ISLA BURGER - KEBAB SALADE def.png'),
+  'salade-poulet-tandoori': menuAsset('56 ISLA BURGER - SALADE AU POULET TANDOORI def.png'),
+  'menu-famille-bucket': remoteFoodImage('https://images.unsplash.com/photo-1527477396000-e27163b481c2', 'menu-famille-bucket'),
+  'bucket-mixte': remoteFoodImage('https://images.unsplash.com/photo-1610614819513-58e34989848b', 'bucket-mixte'),
+  'bucket-wings': remoteFoodImage('https://images.pexels.com/photos/9650084/pexels-photo-9650084.jpeg', 'bucket-wings'),
+  'bucket-tenders': remoteFoodImage('https://images.unsplash.com/photo-1619881590738-a111d176d906', 'bucket-tenders'),
+  'mega-bucket-mixte': remoteFoodImage('https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg', 'mega-bucket-mixte'),
+  'bucket-burgers-party': menuAsset('08 ISLA BURGER - BIG TASTY PARMESAN def.png'),
+  'menu-enfant': menuAsset('13 ISLA BURGER . CHICKEN BURGER def.png'),
+  'petite-frites': remoteFoodImage('https://images.unsplash.com/photo-1518013431117-eb1465fa5752', 'petite-frites'),
+  'grandes-frites': remoteFoodImage('https://images.unsplash.com/photo-1573080496219-bb080dd4f877', 'grandes-frites')
 };
 
 const rawMenu = {
@@ -281,7 +321,7 @@ const menuItems = Object.entries(rawMenu).reduce((acc, [category, items]) => {
     name,
     description,
     tags,
-    image: `${imageByCategory[category]}?auto=format&fit=crop&w=900&q=80&sig=${index}`,
+    image: imageByItem[id],
     rating: 4.5 + ((index + category.length) % 4) / 10,
     badge: index === 0 ? 'Popular' : tags.includes('Spicy') ? 'Spicy' : '',
     sizes: largePrice
@@ -428,52 +468,62 @@ const translateText = (text, lang) => {
 
 const formatPrice = (price) => `\u20AC${price.toFixed(2)}`;
 
+const getDisplayImage = (image) => (typeof image === 'string' && image.startsWith('/menu/')
+  ? encodeURI(image)
+  : image);
+
 const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
-  const imageSrc = typeof item.image === 'string' && item.image.startsWith('/menu/')
-    ? encodeURI(item.image)
-    : item.image;
+  const imageSrc = getDisplayImage(item.image);
+  const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
 
   return (
   <motion.article
     layout
     initial={{ opacity: 0, y: 18 }}
     animate={{ opacity: 1, y: 0 }}
-    whileHover={{ y: -8, rotate: -0.4 }}
-    className="card-pop group h-full overflow-hidden bg-[#FFF8E7] shadow-[0_18px_36px_-24px_rgba(122,13,23,0.28)]"
+    whileHover={{ y: -10 }}
+    className="menu-card group h-full overflow-hidden"
   >
     <button type="button" onClick={() => onOpen(item)} className="block w-full text-left">
-      <div className="img-zoom relative aspect-[4/3] overflow-hidden bg-[#FFE6B3]">
+      <div className="menu-image-stage relative">
+        <div className="menu-image-glow" />
+        <div className="food-ground-shadow" />
         <img
           src={imageSrc}
           alt={item.name}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className={isCutout ? 'menu-food-img menu-food-cutout' : 'menu-food-img menu-food-photo'}
         />
         {item.badge && (
-          <span className="hot-tag absolute left-3 top-3">
+          <span className="hot-tag absolute left-4 top-4">
             {item.badge}
           </span>
         )}
-        <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/60 bg-[#FFF8E7]/95 px-2.5 py-1 text-xs font-black text-[#1A1206] shadow-md backdrop-blur">
+        <span className="menu-rating-pill absolute right-4 top-4">
           <Star className="h-3.5 w-3.5 fill-[#FFB627] text-[#FFB627]" />
           {item.rating.toFixed(1)}
         </span>
       </div>
     </button>
-    <div className="flex min-h-[188px] flex-col p-4">
+    <div className="flex min-h-[210px] flex-col p-5">
       <button type="button" onClick={() => onOpen(item)} className="text-left">
-        <h3 className="text-lg font-black leading-tight text-[#1A1206]">{item.name}</h3>
-        <p className="mt-2 line-clamp-2 min-h-10 text-sm font-medium leading-5 text-[#1A1206]/65">{item.description}</p>
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {item.tags.filter((tag) => tag !== 'All').slice(0, 3).map((tag) => (
+            <span key={tag} className="menu-tag-chip">{tag}</span>
+          ))}
+        </div>
+        <h3 className="text-xl font-black leading-tight text-[#1A1206]">{item.name}</h3>
+        <p className="mt-2 line-clamp-2 min-h-11 text-sm font-semibold leading-5 text-[#1A1206]/64">{item.description}</p>
       </button>
       <div className="mt-auto flex items-center justify-between gap-3 pt-4">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-wide text-[#B25700]">{copy.startingAt}</p>
-          <p className="text-xl font-black text-[#E63946]">{formatPrice(item.sizes[0].price)}</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#B25700]">{copy.startingAt}</p>
+          <p className="text-2xl font-black leading-none text-[#E63946]">{formatPrice(item.sizes[0].price)}</p>
         </div>
         <button
           type="button"
           onClick={() => onQuickAdd(item)}
-          className="btn-3d min-h-0 rounded-xl px-4 py-3 text-xs"
+          className="btn-3d menu-add-button min-h-0 rounded-xl px-4 py-3 text-xs"
         >
           <Plus className="h-4 w-4" />
           {copy.add}
@@ -485,9 +535,9 @@ const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
 };
 
 const SkeletonCard = () => (
-  <div className="overflow-hidden rounded-[28px] border border-[#F3E2C3] bg-white">
-    <div className="aspect-[4/3] animate-pulse bg-[#F4DFC0]" />
-    <div className="space-y-3 p-4">
+  <div className="menu-card overflow-hidden">
+    <div className="h-[250px] animate-pulse bg-[#F4DFC0]" />
+    <div className="space-y-3 p-5">
       <div className="h-5 w-2/3 animate-pulse rounded-full bg-[#F4DFC0]" />
       <div className="h-4 w-full animate-pulse rounded-full bg-[#F4DFC0]" />
       <div className="h-4 w-4/5 animate-pulse rounded-full bg-[#F4DFC0]" />
@@ -507,6 +557,8 @@ const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
 
   const selectedSize = item.sizes[sizeIndex];
   const total = selectedSize.price * quantity;
+  const imageSrc = getDisplayImage(item.image);
+  const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
 
   return (
     <AnimatePresence>
@@ -529,8 +581,10 @@ const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
           className="max-h-[92vh] w-full overflow-hidden rounded-t-[28px] bg-[#FFF8E7] shadow-2xl sm:max-w-2xl sm:rounded-[28px]"
         >
           <div className="max-h-[92vh] overflow-y-auto">
-            <div className="relative aspect-[16/10] overflow-hidden bg-[#FFE6B3]">
-              <img src={item.image} alt={item.name} className="h-full w-full object-cover" loading="lazy" />
+            <div className="menu-modal-stage relative overflow-hidden">
+              <div className="menu-image-glow" />
+              <div className="food-ground-shadow" />
+              <img src={imageSrc} alt={item.name} className={isCutout ? 'menu-modal-img menu-food-cutout' : 'menu-modal-img menu-food-photo'} loading="lazy" />
               <button
                 type="button"
                 onClick={onClose}
@@ -673,7 +727,7 @@ const Menu = ({ onAddToCart }) => {
   };
 
   return (
-    <section id="menu" className="relative bg-[#FFF8ED] pb-24 text-[#17120D] lg:pb-28">
+    <section id="menu" className="relative bg-[#FFF8F0] pb-24 text-[#17120D] lg:pb-28">
       <div className="relative isolate min-h-[86vh] overflow-hidden bg-[#17120D] pt-28 text-white">
         <img
           src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1800&q=85"
