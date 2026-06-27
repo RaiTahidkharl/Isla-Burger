@@ -196,6 +196,7 @@ const menuCopy = {
 };
 
 const menuAsset = (file) => `/menu/cutouts/${file}`;
+const menuPhoto = (file) => `/menu/${file}`;
 const remoteFoodImage = (url, id) => `${url}?auto=format&fit=crop&w=900&q=85&sig=isla-${id}`;
 
 const imageByItem = {
@@ -206,11 +207,22 @@ const imageByItem = {
   'cheezy-bacon': menuAsset('05 ISLA BURGER - CHEEZY BACON def.png'),
   'country-max': menuAsset('06 ISLA BURGER - COUNTRY MAX def.png'),
   'pak-burger-classic': menuAsset('07 ISLA BURGER - PAK BURGER CLASSIC def.png'),
+  'big-tasty-parmesan': menuAsset('08 ISLA BURGER - BIG TASTY PARMESAN def.png'),
   'big-tasty': menuAsset('09 ISLA BURGER - BIG TASTY def.png'),
+  'large-beef': menuAsset('10 ISLA BURGER - LARGE BEEF def.png'),
+  'xl-beef-parmesan': menuAsset('11 ISLA BURGER - XL BEEF PARMESAN def.png'),
   'spicy-beef-burger': menuAsset('12 ISLA BURGER - SPICY BEEF BURGER  def.png'),
-  'chicken-burger': menuAsset('15 ISLA BURGER - CHICKEN BURGER def.png'),
-  'chicken-royal': menuAsset('21 ISLA BURGER - LARGE CHICKEN def.png'),
+  'chicken-burger': menuAsset('13 ISLA BURGER . CHICKEN BURGER def.png'),
+  'country-max-poulet-bacon': menuAsset('14 ISLA BURGER - COUNTRY MAX def.png'),
+  'chicken-royal': menuAsset('15 ISLA BURGER - CHICKEN BURGER def.png'),
+  'supreme-burger': menuAsset('16 ISLA BURGER - SUPREME BURGER def.png'),
+  'tikka-burger': menuAsset('17 ISLA BURGER - TIKKA BURGER def.png'),
+  'cheezy-bacon-double': menuAsset('18 ISLA BURGER - CHEEZY BACON def.png'),
+  'xl-chicken-parmesan': menuAsset('19 ISLA BURGER - XL CHICKEN PARMESAN copia.png'),
+  'supreme-poulet-parmesan': menuAsset('20 ISLA BURGER - SUPREME POULET PARMESAN.png'),
+  'large-chicken': menuAsset('21 ISLA BURGER - LARGE CHICKEN def.png'),
   'fish-burger': menuAsset('22 ISLA BURGER - FISH BURGER def.png'),
+  'chicken-baguette': menuAsset('23 ISLA BURGER - CHICKEN BAGUETTE def.png'),
   'sandwich-kebab': remoteFoodImage('https://images.unsplash.com/photo-1529006557810-274b9b2fc783', 'sandwich-kebab'),
   'kebab-wrap': remoteFoodImage('https://images.unsplash.com/photo-1626700051175-6818013e1d4f', 'kebab-wrap'),
   'chicken-wrap': menuAsset('29 ISLA BURGER - CHICKEN WRAP def.png'),
@@ -226,7 +238,7 @@ const imageByItem = {
   '3x-chicken': remoteFoodImage('https://images.unsplash.com/photo-1567620832903-9fc6debc209f', '3x-chicken'),
   'chicken-tenders': remoteFoodImage('https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg', 'chicken-tenders'),
   'chicken-nuggets': remoteFoodImage('https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg', 'chicken-nuggets'),
-  'chicken-pop-corn': remoteFoodImage('https://images.pexels.com/photos/6061645/pexels-photo-6061645.jpeg', 'chicken-pop-corn'),
+  'chicken-pop-corn': remoteFoodImage('https://i.pinimg.com/736x/c2/ae/1c/c2ae1c52067830eead5ecfcad57f4759.jpg', 'chicken-pop-corn'),
   'chicken-tikka': menuAsset('20 ISLA BURGER - SUPREME POULET PARMESAN.png'),
   'samosas': remoteFoodImage('https://images.unsplash.com/photo-1601050690597-df0568f70950', 'samosas'),
   'tikka-palau': menuAsset('50 ISLA BURGER - TIKKA PALAU def.png'),
@@ -236,12 +248,12 @@ const imageByItem = {
   'salade-caesar': remoteFoodImage('https://images.unsplash.com/photo-1546793665-c74683f339c1', 'salade-caesar'),
   'kebab-salade': menuAsset('55 ISLA BURGER - KEBAB SALADE def.png'),
   'salade-poulet-tandoori': menuAsset('56 ISLA BURGER - SALADE AU POULET TANDOORI def.png'),
-  'menu-famille-bucket': remoteFoodImage('https://images.unsplash.com/photo-1527477396000-e27163b481c2', 'menu-famille-bucket'),
-  'bucket-mixte': remoteFoodImage('https://images.unsplash.com/photo-1610614819513-58e34989848b', 'bucket-mixte'),
-  'bucket-wings': remoteFoodImage('https://images.pexels.com/photos/9650084/pexels-photo-9650084.jpeg', 'bucket-wings'),
-  'bucket-tenders': remoteFoodImage('https://images.unsplash.com/photo-1619881590738-a111d176d906', 'bucket-tenders'),
-  'mega-bucket-mixte': remoteFoodImage('https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg', 'mega-bucket-mixte'),
-  'bucket-burgers-party': menuAsset('08 ISLA BURGER - BIG TASTY PARMESAN def.png'),
+  'menu-famille-57': menuPhoto('10 morceaux.jpeg'),
+  'menu-famille-58': menuPhoto('6 morceaux.jpeg'),
+  'menu-famille-59': menuPhoto('25 ailes.jpeg'),
+  'menu-famille-60': menuPhoto('25 tenders.jpeg'),
+  'menu-famille-61': menuPhoto('61.jpeg'),
+  'menu-famille-63': menuPhoto('63 .jpeg'),
   'menu-enfant': menuAsset('13 ISLA BURGER . CHICKEN BURGER def.png'),
   'petite-frites': remoteFoodImage('https://images.unsplash.com/photo-1518013431117-eb1465fa5752', 'petite-frites'),
   'grandes-frites': remoteFoodImage('https://images.unsplash.com/photo-1573080496219-bb080dd4f877', 'grandes-frites')
@@ -249,18 +261,29 @@ const imageByItem = {
 
 const rawMenu = {
   burgers: [
-    ['cheese-burger', 'Cheese Burger', 'Beef patty, cheddar, pickles and house burger sauce.', 5.5, 8.5, ['Beef']],
-    ['double-cheese-burger', 'Double Cheese Burger', 'Two beef patties, cheddar, lettuce, burger sauce.', 6.9, 10.5, ['Beef']],
-    ['triple-cheese-burger', 'Triple Cheese Burger', 'Triple beef, cheddar, onion, lettuce, tomato and burger sauce.', 7.9, 11.9, ['Beef']],
-    ['ib-supreme', 'IB Supreme', 'Double beef, bacon, cheddar, egg, salad, tomato and your sauce.', 7.9, 11.9, ['Beef']],
-    ['cheezy-bacon', 'Cheezy Bacon', 'Beef, cheddar, bacon, pickles, onion, salad, tomato and sauce.', 6.9, 9.5, ['Beef']],
-    ['country-max', 'Country Max', '110g beef, potato rosti, cheddar, onion, salad, tomato and sauce.', 7.9, 11.9, ['Beef']],
-    ['pak-burger-classic', 'Pak Burger Classic', 'Two 110g beef patties, cheddar, green chili, onion, egg and salad.', 8.9, 12.9, ['Beef', 'Spicy']],
-    ['big-tasty', 'Big Tasty', '110g beef, two tenders, cheddar, egg, onion, salad, tomato and sauce.', 8.9, 13.9, ['Beef', 'Chicken']],
-    ['spicy-beef-burger', 'Spicy Beef Burger', 'Kefta, bacon, cheddar, green chili, egg, salad, tomato and sauce.', 8.9, 12.9, ['Beef', 'Spicy']],
-    ['chicken-burger', 'Chicken Burger', 'Crispy chicken, cheddar, salad and your choice of sauce.', 5.9, 9.9, ['Chicken']],
-    ['chicken-royal', 'Chicken Royal', 'Crispy chicken breast, cheddar, potato rosti, salad and sauce.', 7.9, 11.9, ['Chicken']],
-    ['fish-burger', 'Fish Burger', 'Crispy fish, cheddar, salad and creamy sauce.', 6.9, 9.9, ['All']]
+    ['cheese-burger', 'Cheese Burger', 'Beef patty, cheddar, pickles and burger sauce.', 5.5, 8.5, ['Beef']],
+    ['double-cheese-burger', 'Double Cheese Burger', 'Two beef patties, cheddar, lettuce, tomato and burger sauce.', 6.9, 10.5, ['Beef']],
+    ['triple-cheese-burger', 'Triple Cheese Burger', 'Three beef patties, cheddar, onion, lettuce, tomato and burger sauce.', 7.9, 11.9, ['Beef']],
+    ['ib-supreme', 'IB Supreme', 'Two beef patties, bacon, cheddar, egg, lettuce, tomato and your choice of sauce.', 7.9, 11.9, ['Beef']],
+    ['cheezy-bacon', 'Cheezy Bacon', 'Beef patty, cheddar, bacon, pickles, onion, lettuce, tomato and your choice of sauce.', 6.9, 9.5, ['Beef']],
+    ['country-max', 'Country Max', '110g beef patty, potato rosti, cheddar, onion, lettuce, tomato and your choice of sauce.', 7.9, 11.9, ['Beef']],
+    ['pak-burger-classic', 'Pak Burger Classic', 'Two 110g beef patties, cheddar, spicy green chili, onion, egg, lettuce, tomato and your choice of sauce.', 8.9, 12.9, ['Beef', 'Spicy']],
+    ['big-tasty-parmesan', 'Big Tasty Parmesan', '110g beef patty, parmesan slices, egg, lettuce, tomato and your choice of sauce.', 7.9, 11.9, ['Beef']],
+    ['big-tasty', 'Big Tasty', '110g beef patty, two tenders, cheddar, egg, onion, lettuce, tomato and your choice of sauce.', 8.9, 13.9, ['Beef', 'Chicken']],
+    ['large-beef', 'Large Beef', 'Large sandwich with a generous 110g beef patty, cheddar, egg, lettuce, tomato and your choice of sauce.', 7.5, 10.9, ['Beef']],
+    ['xl-beef-parmesan', 'XL Beef Parmesan', '110g beef patty, parmesan slices, spicy green chili, bacon, lettuce, tomato and your choice of sauce.', 8.9, 12.9, ['Beef', 'Spicy']],
+    ['spicy-beef-burger', 'Spicy Beef Burger', '110g kefta, bacon, cheddar, spicy green chili, egg, lettuce, tomato and your choice of sauce.', 8.9, 12.9, ['Beef', 'Spicy']],
+    ['chicken-burger', 'Chicken Burger', 'Breaded chicken, cheddar, lettuce and your choice of sauce.', 5.9, 9.9, ['Chicken']],
+    ['country-max-poulet-bacon', 'Country Max Poulet/Bacon', 'Beef patty, rosti, cheddar, egg, bacon, lettuce and your choice of sauce.', 6.9, 10.9, ['Beef']],
+    ['chicken-royal', 'Chicken Royal', 'Breaded chicken breast, cheddar, potato rosti, lettuce and your choice of sauce.', 7.9, 11.9, ['Chicken']],
+    ['supreme-burger', 'Supreme Burger', 'Tenders, bacon, egg, lettuce, tomato and your choice of sauce.', 7.9, 11.5, ['Chicken']],
+    ['tikka-burger', 'Tikka Burger', 'Grilled chicken escalope marinated in tandoori tikka sauce, cheddar, lettuce, tomato and your choice of sauce.', 7.5, 10.9, ['Chicken', 'Spicy']],
+    ['cheezy-bacon-double', 'Cheezy Bacon Double', 'Two beef patties, bacon, cheddar, onion, lettuce, tomato and your choice of sauce.', 6.9, 9.9, ['Beef']],
+    ['xl-chicken-parmesan', 'XL Chicken Parmesan', 'Grilled chicken escalope, parmesan slices, onion, egg, tomato, lettuce, spicy green chili and your choice of sauce.', 8.9, 12.9, ['Chicken', 'Spicy']],
+    ['supreme-poulet-parmesan', 'Supreme Poulet Parmesan', 'Tikka chicken marinated in tandoori sauce, parmesan, bacon, egg, lettuce, tomato and your choice of sauce.', 9.5, 13.9, ['Chicken', 'Spicy']],
+    ['large-chicken', 'Large Chicken', 'Large sandwich with lemon-marinated grilled chicken breast, cheddar, onion, lettuce, tomato and your choice of sauce.', 6.9, 9.9, ['Chicken']],
+    ['fish-burger', 'Fish Burger', 'Breaded fish, cheddar, lettuce and your choice of sauce.', 6.9, 9.9, ['All']],
+    ['chicken-baguette', 'Chicken Baguette', 'Baguette with breaded chicken, cheddar, egg, lettuce, tomato and your choice of sauce.', 7.9, 11.9, ['Chicken']]
   ],
   wraps: [
     ['sandwich-kebab', 'Sandwich Kebab', 'Kebab, onion, salad, tomato and sauce in soft bread.', 6.9, 9.5, ['Kebab']],
@@ -298,12 +321,12 @@ const rawMenu = {
     ['salade-poulet-tandoori', 'Salade Poulet Tandoori', 'Composed salad with three grilled tikka chicken pieces, fries and drink.', 9.9, null, ['Chicken', 'Spicy']]
   ],
   buckets: [
-    ['menu-famille-bucket', 'Menu Famille Bucket', 'Ten chicken pieces, four fries and one 1.5L drink.', 28.9, null, ['Chicken', 'Family Meals']],
-    ['bucket-mixte', 'Bucket Mixte', 'Six chicken pieces, ten wings, four fries and one 1.5L drink.', 29.9, null, ['Chicken', 'Family Meals']],
-    ['bucket-wings', 'Bucket Wings', 'Twenty-five spicy wings, four fries and one 1.5L drink.', 32.9, null, ['Chicken', 'Spicy', 'Family Meals']],
-    ['bucket-tenders', 'Bucket Tenders', 'Twenty-five tenders, four fries and one 1.5L drink.', 32.9, null, ['Chicken', 'Family Meals']],
-    ['mega-bucket-mixte', 'Mega Bucket Mixte', 'Chicken pieces, spicy wings, tenders, four fries and one 1.5L drink.', 35.9, null, ['Chicken', 'Spicy', 'Family Meals']],
-    ['bucket-burgers-party', 'Bucket & Burgers Party', 'Tenders, spicy wings, three cheeseburgers, four fries and one 1.5L drink.', 45.9, null, ['Chicken', 'Beef', 'Family Meals']]
+    ['menu-famille-57', 'Menu Famille 57', 'Ten chicken pieces, four fries and one 1.5L drink.', 28.9, null, ['Chicken', 'Family Meals']],
+    ['menu-famille-58', 'Menu Famille 58', 'Six chicken pieces, ten chicken wings, four fries and one 1.5L drink.', 29.9, null, ['Chicken', 'Family Meals']],
+    ['menu-famille-59', 'Menu Famille 59', 'Twenty-five spicy chicken wings, four fries and one 1.5L drink.', 32.9, null, ['Chicken', 'Spicy', 'Family Meals']],
+    ['menu-famille-60', 'Menu Famille 60', 'Twenty-five crispy tenders, four fries and one 1.5L drink.', 32.9, null, ['Chicken', 'Family Meals']],
+    ['menu-famille-61', 'Menu Famille 61', 'Four chicken pieces, twelve spicy chicken wings, ten tenders, four fries and one 1.5L drink.', 35.9, null, ['Chicken', 'Spicy', 'Family Meals']],
+    ['menu-famille-63', 'Menu Famille 63', 'Six chicken pieces, ten spicy chicken wings, ten tenders, two cheeseburgers and four fries.', 46.9, null, ['Chicken', 'Beef', 'Spicy', 'Family Meals']]
   ],
   kids: [
     ['menu-enfant', 'Menu Enfant', 'Cheeseburger, fries and drink for younger burger fans.', 7.5, null, ['Beef']]
@@ -337,7 +360,6 @@ const menuItems = Object.entries(rawMenu).reduce((acc, [category, items]) => {
 const itemCopy = {
   FR: {
     'double-cheese-burger': ['Double Cheese Burger', 'Deux steaks boeuf, cheddar, salade, tomate et sauce burger.'],
-    'bucket-mixte': ['Bucket Mixte', 'Six pieces de poulet, dix wings, quatre frites et une boisson 1,5 L.'],
     'hot-spicy-wings': ['Hot Spicy Wings', 'Six ou dix wings de poulet croustillantes et epicees.'],
     'naan-mix': ['Naan Mix', 'Naan avec deux steaks, tenders, cheddar, salade, tomate et sauce.'],
     'chicken-wrap': ['Chicken Wrap', 'Poulet croustillant, cheddar, salade, tomate et sauce.'],
@@ -347,11 +369,22 @@ const itemCopy = {
     'cheezy-bacon': ['Cheezy Bacon', 'Boeuf, cheddar, bacon, cornichons, oignon, salade, tomate et sauce.'],
     'country-max': ['Country Max', 'Boeuf 110g, galette de pomme de terre, cheddar, oignon, salade, tomate et sauce.'],
     'pak-burger-classic': ['Pak Burger Classic', 'Deux steaks 110g, cheddar, piment vert, oignon, oeuf et salade.'],
+    'big-tasty-parmesan': ['Big Tasty Parmesan', 'Boeuf 110g, tranches de Parmesan, oeuf, salade, tomate et sauce au choix.'],
     'big-tasty': ['Big Tasty', 'Boeuf 110g, deux tenders, cheddar, oeuf, oignon, salade, tomate et sauce.'],
+    'large-beef': ['Large Beef', 'Gros sandwich avec boeuf 110g, cheddar, oeuf, salade, tomate et sauce au choix.'],
+    'xl-beef-parmesan': ['XL Beef Parmesan', 'Boeuf 110g, tranches de Parmesan, piment vert, bacon, salade, tomate et sauce au choix.'],
     'spicy-beef-burger': ['Spicy Beef Burger', 'Kefta, bacon, cheddar, piment vert, oeuf, salade, tomate et sauce.'],
-    'chicken-burger': ['Chicken Burger', 'Poulet croustillant, cheddar, salade et sauce au choix.'],
-    'chicken-royal': ['Chicken Royal', 'Filet de poulet croustillant, cheddar, galette de pomme de terre, salade et sauce.'],
-    'fish-burger': ['Fish Burger', 'Poisson croustillant, cheddar, salade et sauce cremeuse.'],
+    'chicken-burger': ['Chicken Burger', 'Poulet pane, cheddar, salade et sauce au choix.'],
+    'country-max-poulet-bacon': ['Country Max Poulet/Bacon', 'Boeuf, rosti, cheddar, oeuf, bacon, salade et sauce au choix.'],
+    'chicken-royal': ['Chicken Royal', 'Blanc de poulet pane, cheddar, galette de pomme de terre, salade et sauce au choix.'],
+    'supreme-burger': ['Supreme Burger', 'Tenders, bacon, oeuf, salade, tomate et sauce au choix.'],
+    'tikka-burger': ['Tikka Burger', 'Escalope de poulet grillee et marinee sauce tandoori tikka, cheddar, salade, tomate et sauce au choix.'],
+    'cheezy-bacon-double': ['Cheezy Bacon Double', 'Deux steaks boeuf, bacon, cheddar, oignon, salade, tomate et sauce au choix.'],
+    'xl-chicken-parmesan': ['XL Chicken Parmesan', 'Escalope de poulet grillee, tranches de Parmesan, oignon, oeuf, tomate, salade, piment vert et sauce au choix.'],
+    'supreme-poulet-parmesan': ['Supreme Poulet Parmesan', 'Poulet tikka marine sauce tandoori tikka, Parmesan, bacon, oeuf, salade, tomate et sauce au choix.'],
+    'large-chicken': ['Large Chicken', 'Gros sandwich avec blanc de poulet marine au citron et grille, cheddar, oignon, salade, tomate et sauce au choix.'],
+    'fish-burger': ['Fish Burger', 'Poisson pane, cheddar, salade et sauce au choix.'],
+    'chicken-baguette': ['Chicken Baguette', 'Baguette avec poulet pane, cheddar, oeuf, salade, tomate et sauce au choix.'],
     'sandwich-kebab': ['Sandwich Kebab', 'Kebab, oignon, salade, tomate et sauce dans un pain moelleux.'],
     'kebab-wrap': ['Kebab Wrap', 'Kebab, oignon, salade, tomate et sauce dans une tortilla.'],
     'tikka-wrap': ['Tikka Wrap', 'Poulet tikka grille, cheddar, salade, tomate et sauce.'],
@@ -374,11 +407,12 @@ const itemCopy = {
     'salade-caesar': ['Salade Caesar', 'Salade composee avec trois morceaux de poulet marine, frites et boisson.'],
     'kebab-salade': ['Kebab Salade', 'Salade composee avec kebab, frites et boisson.'],
     'salade-poulet-tandoori': ['Salade Poulet Tandoori', 'Salade composee avec trois morceaux de poulet tikka grille, frites et boisson.'],
-    'menu-famille-bucket': ['Menu Famille Bucket', 'Dix pieces de poulet, quatre frites et une boisson 1,5 L.'],
-    'bucket-wings': ['Bucket Wings', 'Vingt-cinq wings epicees, quatre frites et une boisson 1,5 L.'],
-    'bucket-tenders': ['Bucket Tenders', 'Vingt-cinq tenders, quatre frites et une boisson 1,5 L.'],
-    'mega-bucket-mixte': ['Mega Bucket Mixte', 'Pieces de poulet, wings epicees, tenders, quatre frites et une boisson 1,5 L.'],
-    'bucket-burgers-party': ['Bucket & Burgers Party', 'Tenders, wings epicees, trois cheeseburgers, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-57': ['Menu Famille 57', 'Dix morceaux de poulet, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-58': ['Menu Famille 58', 'Six morceaux de poulet, dix ailes de poulet, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-59': ['Menu Famille 59', 'Vingt-cinq ailes de poulet piquantes, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-60': ['Menu Famille 60', 'Vingt-cinq tenders, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-61': ['Menu Famille 61', 'Quatre morceaux de poulet, douze ailes de poulet piquantes, dix tenders, quatre frites et une boisson 1,5 L.'],
+    'menu-famille-63': ['Menu Famille 63', 'Six morceaux de poulet, dix ailes de poulet piquantes, dix tenders, deux cheeseburgers et quatre frites.'],
     'menu-enfant': ['Menu Enfant', 'Cheeseburger, frites et boisson pour les jeunes fans de burgers.'],
     'petite-frites': ['Petite Frites', 'Petite portion de frites dorees et croustillantes.'],
     'grandes-frites': ['Grandes Frites', 'Grande portion de frites dorees et croustillantes.']
@@ -475,6 +509,7 @@ const getDisplayImage = (image) => (typeof image === 'string' && image.startsWit
 const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
   const imageSrc = getDisplayImage(item.image);
   const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
+  const isMenuPoster = item.category === 'buckets' && !isCutout;
 
   return (
   <motion.article
@@ -485,24 +520,28 @@ const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
     className="menu-card group h-full overflow-hidden"
   >
     <button type="button" onClick={() => onOpen(item)} className="block w-full text-left">
-      <div className="menu-image-stage relative">
-        <div className="menu-image-glow" />
-        <div className="food-ground-shadow" />
+      <div className={`menu-image-stage relative ${isMenuPoster ? 'menu-poster-stage' : ''}`}>
+        {!isMenuPoster && <div className="menu-image-glow" />}
+        {!isMenuPoster && <div className="food-ground-shadow" />}
         <img
           src={imageSrc}
           alt={item.name}
           loading="lazy"
-          className={isCutout ? 'menu-food-img menu-food-cutout' : 'menu-food-img menu-food-photo'}
+          className={isMenuPoster
+            ? 'menu-food-img menu-menu-poster'
+            : isCutout
+              ? 'menu-food-img menu-food-cutout'
+              : 'menu-food-img menu-food-photo'}
         />
-        {item.badge && (
+        {item.badge && !isMenuPoster && (
           <span className="hot-tag absolute left-4 top-4">
             {item.badge}
           </span>
         )}
-        <span className="menu-rating-pill absolute right-4 top-4">
+        {!isMenuPoster && <span className="menu-rating-pill absolute right-4 top-4">
           <Star className="h-3.5 w-3.5 fill-[#FFB627] text-[#FFB627]" />
           {item.rating.toFixed(1)}
-        </span>
+        </span>}
       </div>
     </button>
     <div className="flex min-h-[210px] flex-col p-5">
@@ -559,6 +598,7 @@ const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
   const total = selectedSize.price * quantity;
   const imageSrc = getDisplayImage(item.image);
   const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
+  const isMenuPoster = item.category === 'buckets' && !isCutout;
 
   return (
     <AnimatePresence>
@@ -581,10 +621,19 @@ const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
           className="max-h-[92vh] w-full overflow-hidden rounded-t-[28px] bg-[#FFF8E7] shadow-2xl sm:max-w-2xl sm:rounded-[28px]"
         >
           <div className="max-h-[92vh] overflow-y-auto">
-            <div className="menu-modal-stage relative overflow-hidden">
-              <div className="menu-image-glow" />
-              <div className="food-ground-shadow" />
-              <img src={imageSrc} alt={item.name} className={isCutout ? 'menu-modal-img menu-food-cutout' : 'menu-modal-img menu-food-photo'} loading="lazy" />
+            <div className={`menu-modal-stage relative overflow-hidden ${isMenuPoster ? 'menu-poster-modal-stage' : ''}`}>
+              {!isMenuPoster && <div className="menu-image-glow" />}
+              {!isMenuPoster && <div className="food-ground-shadow" />}
+              <img
+                src={imageSrc}
+                alt={item.name}
+                className={isMenuPoster
+                  ? 'menu-modal-img menu-menu-poster'
+                  : isCutout
+                    ? 'menu-modal-img menu-food-cutout'
+                    : 'menu-modal-img menu-food-photo'}
+                loading="lazy"
+              />
               <button
                 type="button"
                 onClick={onClose}

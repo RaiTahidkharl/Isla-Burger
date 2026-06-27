@@ -239,10 +239,26 @@
     radial-gradient(circle at 16% 18%, rgba(230,57,70,.12), transparent 34%),
     linear-gradient(180deg, #FFFDF8 0%, #FFF1DC 100%);
 }
+.menu-poster-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,182,39,.24) 0 26%, rgba(255,182,39,0) 62%),
+    linear-gradient(180deg, #FFFDF8 0%, #FFF1DC 100%);
+}
 .menu-modal-stage {
   min-height: 360px;
   background:
     radial-gradient(circle at 50% 55%, rgba(255,182,39,.36) 0 24%, rgba(255,182,39,0) 58%),
+    linear-gradient(180deg, #FFFDF8 0%, #FFF1DC 100%);
+}
+.menu-poster-modal-stage {
+  min-height: min(76vh, 620px);
+  padding: 18px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,182,39,.22) 0 28%, rgba(255,182,39,0) 64%),
     linear-gradient(180deg, #FFFDF8 0%, #FFF1DC 100%);
 }
 .menu-image-glow {
@@ -289,8 +305,23 @@
   object-fit: cover;
   filter: saturate(1.08) contrast(1.02);
 }
+.menu-menu-poster {
+  inset: 16px;
+  height: calc(100% - 32px);
+  width: calc(100% - 32px);
+  object-fit: contain;
+  border-radius: 18px;
+  background: #090909;
+  box-shadow:
+    0 22px 34px -26px rgba(74,32,8,.72),
+    0 0 0 1px rgba(255,255,255,.72);
+  filter: saturate(1.03) contrast(1.02);
+}
 .menu-card:hover .menu-food-img {
   transform: translateY(-8px) scale(1.045) rotate(-.4deg);
+}
+.menu-card:hover .menu-menu-poster {
+  transform: translateY(-4px) scale(1.025);
 }
 .menu-card:hover .menu-image-glow {
   transform: translate(-50%, -50%) scale(1.08);
@@ -342,10 +373,25 @@
   width: 100%;
   object-fit: cover;
 }
+.menu-modal-stage .menu-menu-poster {
+  inset: 18px;
+  height: calc(100% - 36px);
+  width: calc(100% - 36px);
+  border-radius: 20px;
+  object-fit: contain;
+}
 
 @media (max-width: 640px) {
   .menu-image-stage { height: 220px; }
   .menu-modal-stage { min-height: 300px; }
+  .menu-poster-stage { padding: 12px; }
+  .menu-poster-modal-stage { min-height: min(72vh, 520px); padding: 12px; }
+  .menu-menu-poster {
+    inset: 12px;
+    height: calc(100% - 24px);
+    width: calc(100% - 24px);
+    border-radius: 14px;
+  }
 }
 
 /* Hero blob */

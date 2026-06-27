@@ -1,24 +1,46 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
 import { translations, LANGS } from '../i18n/translations';
 
 const LanguageContext = createContext(null);
+const DEFAULT_LANG = 'FR';
+const LANGUAGE_EVENT = 'isla-language-change';
+
+const getStoredLanguage = () => {
+  if (typeof window === 'undefined') return DEFAULT_LANG;
+
+  try {
+    const saved = localStorage.getItem('lang');
+    return saved && LANGS.includes(saved) ? saved : DEFAULT_LANG;
+  } catch {
+    return DEFAULT_LANG;
+  }
+};
+
+const subscribeToLanguage = (callback) => {
+  window.addEventListener('storage', callback);
+  window.addEventListener(LANGUAGE_EVENT, callback);
+
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener(LANGUAGE_EVENT, callback);
+  };
+};
 
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('lang');
-      if (saved && LANGS.includes(saved)) return saved;
-    }
-    return 'FR';
-  });
+  const lang = useSyncExternalStore(subscribeToLanguage, getStoredLanguage, () => DEFAULT_LANG);
 
   const setLang = (code) => {
     if (!LANGS.includes(code)) return;
-    setLangState(code);
-    localStorage.setItem('lang', code);
-    document.documentElement.lang = code.toLowerCase();
+
+    try {
+      localStorage.setItem('lang', code);
+      document.documentElement.lang = code.toLowerCase();
+      window.dispatchEvent(new Event(LANGUAGE_EVENT));
+    } catch {
+      // Ignore storage access errors in restricted browser contexts.
+    }
   };
 
   useEffect(() => {
