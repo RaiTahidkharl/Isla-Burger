@@ -26,6 +26,7 @@ const categoryTabs = [
   { id: 'burgers', label: 'Burgers', icon: Beef },
   { id: 'wraps', label: 'Wraps', icon: Utensils },
   { id: 'naan', label: 'Naan', icon: Wheat },
+  { id: 'tacos', label: 'Tacos', icon: Utensils },
   { id: 'chicken', label: 'Chicken', icon: Drumstick },
   { id: 'palau', label: 'Palau', icon: Sparkles },
   { id: 'salads', label: 'Salads', icon: Leaf },
@@ -58,6 +59,7 @@ const menuCopy = {
       burgers: 'Burgers',
       wraps: 'Wraps',
       naan: 'Naan',
+      tacos: 'Tacos',
       chicken: 'Chicken',
       palau: 'Palau',
       salads: 'Salads',
@@ -97,6 +99,7 @@ const menuCopy = {
       burgers: 'Burgers',
       wraps: 'Wraps',
       naan: 'Naan',
+      tacos: 'Tacos',
       chicken: 'Poulet',
       palau: 'Palau',
       salads: 'Salades',
@@ -136,6 +139,7 @@ const menuCopy = {
       burgers: 'Burger',
       wraps: 'Wrap',
       naan: 'Naan',
+      tacos: 'Tacos',
       chicken: 'Pollo',
       palau: 'Palau',
       salads: 'Insalate',
@@ -175,6 +179,7 @@ const menuCopy = {
       burgers: 'Burgers',
       wraps: 'Wraps',
       naan: 'Naan',
+      tacos: 'Tacos',
       chicken: 'Pollo',
       palau: 'Palau',
       salads: 'Ensaladas',
@@ -233,6 +238,10 @@ const imageByItem = {
   'naan-grill-tikka': menuAsset('26 ISLA BURGER - CHICKEN STAR def.png'),
   'sandwich-curry': menuAsset('39 ISLA BURGER - SANDWICH CURRY.png'),
   'sandwich-supreme': menuAsset('40 ISLA BURGER - SANDWICH SUPREME def.png'),
+  'menu-tacos-m': menuPhoto('Taco A.png'),
+  'menu-tacos-l': menuPhoto('Taco A.png'),
+  'menu-tacos-xl': menuPhoto('Taco 2-Photoroom.png'),
+  'menu-tacos-xxl': menuPhoto('Taco 2-Photoroom.png'),
   'chicken-mixte': remoteFoodImage('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58', 'chicken-mixte'),
   'hot-spicy-wings': remoteFoodImage('https://images.unsplash.com/photo-1608039755401-742074f0548d', 'hot-spicy-wings'),
   '3x-chicken': remoteFoodImage('https://images.unsplash.com/photo-1567620832903-9fc6debc209f', '3x-chicken'),
@@ -298,6 +307,12 @@ const rawMenu = {
     ['naan-grill-tikka', 'Naan Grill Tikka', 'Naan with grilled tikka chicken, onion, salad, tomato and sauce.', 8.9, 11.9, ['Chicken', 'Spicy']],
     ['sandwich-curry', 'Sandwich Curry', 'Bakery bread, curry-marinated chicken, cheddar, salad, tomato and sauce.', 7.9, 11.9, ['Chicken']],
     ['sandwich-supreme', 'Sandwich Supreme', 'Bakery bread, two beef patties, cheddar, egg, bacon, salad and sauce.', 9.5, 12.9, ['Beef']]
+  ],
+  tacos: [
+    ['menu-tacos-m', 'Tacos M', 'Cheese sauce, 1 meat and 1 sauce of your choice.', 16.9, null, ['Chicken']],
+    ['menu-tacos-l', 'Tacos L', 'Cheese sauce, 2 meats and 1 sauce of your choice.', 18.2, null, ['Chicken']],
+    ['menu-tacos-xl', 'Tacos XL', 'Cheese sauce, 3 meats and 1 sauce of your choice.', 20.9, null, ['Chicken']],
+    ['menu-tacos-xxl', 'Tacos XXL', 'Cheese sauce, 3 meats and 1 sauce of your choice.', 23.9, null, ['Chicken', 'Family Meals']]
   ],
   chicken: [
     ['chicken-mixte', 'Chicken Mixte', 'Two large fried chicken pieces with four spicy wings.', 11.9, null, ['Chicken', 'Spicy']],
@@ -393,6 +408,10 @@ const itemCopy = {
     'naan-grill-tikka': ['Naan Grill Tikka', 'Naan avec poulet tikka grille, oignon, salade, tomate et sauce.'],
     'sandwich-curry': ['Sandwich Curry', 'Pain boulanger, poulet marine curry, cheddar, salade, tomate et sauce.'],
     'sandwich-supreme': ['Sandwich Supreme', 'Pain boulanger, deux steaks, cheddar, oeuf, bacon, salade et sauce.'],
+    'menu-tacos-m': ['Tacos M', 'Sauce au fromage, 1 viande et 1 sauce au choix.'],
+    'menu-tacos-l': ['Tacos L', 'Sauce au fromage, 2 viandes et 1 sauce au choix.'],
+    'menu-tacos-xl': ['Tacos XL', 'Sauce au fromage, 3 viandes et 1 sauce au choix.'],
+    'menu-tacos-xxl': ['Tacos XXL', 'Sauce au fromage, 3 viandes et 1 sauce au choix.'],
     'chicken-mixte': ['Chicken Mixte', 'Deux grandes pieces de poulet frit avec quatre wings epicees.'],
     '3x-chicken': ['3 x Chicken', 'Trois grandes pieces de poulet dore et croustillant.'],
     'chicken-tenders': ['Chicken Tenders', 'Six tenders de poulet panes et croustillants.'],
@@ -508,7 +527,7 @@ const getDisplayImage = (image) => (typeof image === 'string' && image.startsWit
 
 const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
   const imageSrc = getDisplayImage(item.image);
-  const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
+  const isCutout = (typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/')) || item.category === 'tacos';
   const isMenuPoster = item.category === 'buckets' && !isCutout;
 
   return (
@@ -597,7 +616,7 @@ const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
   const selectedSize = item.sizes[sizeIndex];
   const total = selectedSize.price * quantity;
   const imageSrc = getDisplayImage(item.image);
-  const isCutout = typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/');
+  const isCutout = (typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/')) || item.category === 'tacos';
   const isMenuPoster = item.category === 'buckets' && !isCutout;
 
   return (
@@ -735,7 +754,7 @@ const Menu = ({ onAddToCart }) => {
 
   const bestSellers = useMemo(() => [
     localizedMenuItems.burgers[1],
-    localizedMenuItems.buckets[1],
+    localizedMenuItems.palau[0],
     localizedMenuItems.chicken[1],
     localizedMenuItems.naan[1],
     localizedMenuItems.wraps[2]
