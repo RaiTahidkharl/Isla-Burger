@@ -320,7 +320,7 @@ export const businessInfo = {
   address: '7 Rue d\'Italie, 06000 Nice, France',
   addressShort: '7 Rue d\'Italie, Nice',
   plusCode: 'P738+46 Nice, France',
-  rating: 3.6,
+  rating: 4.2,
   reviewCount: 649,
   priceRange: '€1–10',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Isla+Burger+7+Rue+d%27Italie+Nice',
