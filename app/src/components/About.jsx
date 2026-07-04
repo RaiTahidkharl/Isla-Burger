@@ -32,7 +32,7 @@ const About = () => {
               <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Isla Burger" className="w-full h-full object-cover" />
             </div>
             <div className="absolute bottom-0 right-0 w-[60%] h-[60%] img-zoom rounded-3xl overflow-hidden shadow-[0_30px_60px_-20px_rgba(247,127,0,0.4)] border-[6px] border-white">
-              <img src="https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea" alt="Wraps" className="w-full h-full object-cover" />
+              <img src="/menu/buritto.jpg" alt="Wraps" className="w-full h-full object-cover" />
             </div>
             <div className="absolute top-1/3 right-10 w-32 h-32 rounded-full bg-gradient-to-br from-[#FFB627] to-[#E63946] flex items-center justify-center text-white shadow-[0_20px_40px_-10px_rgba(230,57,70,0.6)] stamp-rotate float-slow">
               <div className="text-center">

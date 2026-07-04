@@ -521,12 +521,20 @@ const translateText = (text, lang) => {
 
 const formatPrice = (price) => `\u20AC${price.toFixed(2)}`;
 
+const getDefaultSizeIndex = (sizes = []) => {
+  const menuIndex = sizes.findIndex((size) => size.label.toLowerCase() === 'menu');
+  return menuIndex >= 0 ? menuIndex : 0;
+};
+
+const getDefaultSize = (item) => item.sizes[getDefaultSizeIndex(item.sizes)];
+
 const getDisplayImage = (image) => (typeof image === 'string' && image.startsWith('/menu/')
   ? encodeURI(image)
   : image);
 
 const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
   const imageSrc = getDisplayImage(item.image);
+  const defaultSize = getDefaultSize(item);
   const isCutout = (typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/')) || item.category === 'tacos';
   const isMenuPoster = item.category === 'buckets' && !isCutout;
 
@@ -575,12 +583,14 @@ const ProductCard = ({ item, onOpen, onQuickAdd, copy }) => {
       </button>
       <div className="mt-auto flex items-center justify-between gap-3 pt-4">
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#B25700]">{copy.startingAt}</p>
-          <p className="text-2xl font-black leading-none text-[#E63946]">{formatPrice(item.sizes[0].price)}</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#B25700]">
+            {defaultSize.label.toLowerCase() === 'menu' ? defaultSize.label : copy.startingAt}
+          </p>
+          <p className="text-2xl font-black leading-none text-[#E63946]">{formatPrice(defaultSize.price)}</p>
         </div>
         <button
           type="button"
-          onClick={() => onQuickAdd(item)}
+          onClick={() => onQuickAdd(item, defaultSize)}
           className="btn-3d menu-add-button min-h-0 rounded-xl px-4 py-3 text-xs"
         >
           <Plus className="h-4 w-4" />
@@ -608,12 +618,12 @@ const SkeletonCard = () => (
 );
 
 const ProductModal = ({ item, onClose, onAdd, copy, categories }) => {
-  const [sizeIndex, setSizeIndex] = useState(0);
+  const [sizeIndex, setSizeIndex] = useState(getDefaultSizeIndex(item?.sizes));
   const [quantity, setQuantity] = useState(1);
 
   if (!item) return null;
 
-  const selectedSize = item.sizes[sizeIndex];
+  const selectedSize = item.sizes[sizeIndex] || getDefaultSize(item);
   const total = selectedSize.price * quantity;
   const imageSrc = getDisplayImage(item.image);
   const isCutout = (typeof item.image === 'string' && item.image.startsWith('/menu/cutouts/')) || item.category === 'tacos';
@@ -771,7 +781,7 @@ const Menu = ({ onAddToCart }) => {
     });
   }, [activeCat, activeFilter, localizedMenuItems, query]);
 
-  const addItem = (item, size = item.sizes[0], quantity = 1) => {
+  const addItem = (item, size = getDefaultSize(item), quantity = 1) => {
     if (onAddToCart) {
       onAddToCart({
         ...item,
@@ -935,7 +945,14 @@ const Menu = ({ onAddToCart }) => {
         )}
       </div>
 
-      <ProductModal item={selectedItem} onClose={() => setSelectedItem(null)} onAdd={addItem} copy={copy} categories={localizedCategoryTabs} />
+      <ProductModal
+        key={selectedItem?.id || 'empty-product-modal'}
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+        onAdd={addItem}
+        copy={copy}
+        categories={localizedCategoryTabs}
+      />
     </section>
   );
 };
