@@ -3,30 +3,93 @@
 export const heroSlides = [
   {
     id: 1,
-    title: 'Burgers & Wings',
-    subtitle: 'Crispy. Fresh. Unforgettable.',
-    description: 'Burgers and chicken wings served in a straightforward counter-serve venue with outdoor tables on Rue d\'Italie.',
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+    title: 'Double Cheeseburger',
+    subtitle: 'Two patties. Melted cheese. Big bite.',
+    description: 'A stacked halal cheeseburger with juicy beef, soft bun, fresh salad and creamy sauce.',
+    image: '/menu/cutouts/02 ISLA BURGER - DOUBLE CHEESEBURGER def.png',
+    imageFit: 'contain',
+    theme: {
+      background: 'radial-gradient(ellipse at top right, #FFE1A8 0%, #FFF5DF 42%, #FFFBF1 82%)',
+      primary: '#D62828',
+      secondary: '#F77F00',
+      accent: '#FFB627',
+      text: '#1A1206',
+      glow: 'rgba(214, 40, 40, 0.42)'
+    },
     cta: 'Order Now',
     ctaTarget: 'uber'
   },
   {
     id: 2,
-    title: 'Open Late',
-    subtitle: 'A beam of light at midnight.',
-    description: 'When every other restaurant is closed and you\'re hungry, Isla Burger is still serving fresh halal food in Nice.',
-    image: 'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
+    title: 'Tikka Palau',
+    subtitle: 'Smoky chicken over fragrant rice.',
+    description: 'Basmati rice, vegetables, red tikka chicken and onions in a generous comfort plate.',
+    image: '/menu/cutouts/50 ISLA BURGER - TIKKA PALAU def.png',
+    imageFit: 'contain',
+    theme: {
+      background: 'radial-gradient(ellipse at top right, #FFE5D2 0%, #FFF0DF 38%, #F8FFF2 84%)',
+      primary: '#B91C1C',
+      secondary: '#7C2D12',
+      accent: '#6FA532',
+      text: '#201207',
+      glow: 'rgba(185, 28, 28, 0.36)'
+    },
     cta: 'View Menu',
     ctaTarget: 'menu'
   },
   {
     id: 3,
-    title: 'Halal & Affordable',
-    subtitle: '€1–10 per person.',
-    description: 'Super friendly staff, very filling for the price. Dine-in, takeout and delivery available.',
-    image: 'https://images.unsplash.com/photo-1650939986300-ce9609921fa7',
+    title: 'Tikka Burger',
+    subtitle: 'Spiced chicken, fresh crunch.',
+    description: 'Grilled tikka chicken with cheddar, lettuce, tomato and sauce for a bold Isla favorite.',
+    image: '/menu/cutouts/17 ISLA BURGER - TIKKA BURGER def.png',
+    imageFit: 'contain',
+    theme: {
+      background: 'radial-gradient(ellipse at top right, #FFE3C2 0%, #FFF7E8 43%, #F4FFF6 86%)',
+      primary: '#C2410C',
+      secondary: '#16A34A',
+      accent: '#FACC15',
+      text: '#1A1206',
+      glow: 'rgba(194, 65, 12, 0.38)'
+    },
     cta: 'Discover',
     ctaTarget: 'menu'
+  },
+  {
+    id: 4,
+    title: 'Open Late',
+    subtitle: 'A beam of light at midnight.',
+    description: 'When every other restaurant is closed and you are hungry, Isla Burger is still serving fresh halal food in Nice.',
+    image: '/menu/cutouts/21 ISLA BURGER - LARGE CHICKEN def.png',
+    imageFit: 'contain',
+    theme: {
+      background: 'radial-gradient(ellipse at top right, #FEE2E2 0%, #FFF7ED 42%, #FFFBEB 84%)',
+      primary: '#E63946',
+      secondary: '#B45309',
+      accent: '#FDBA74',
+      text: '#1A1206',
+      glow: 'rgba(230, 57, 70, 0.36)'
+    },
+    cta: 'View Menu',
+    ctaTarget: 'menu'
+  },
+  {
+    id: 5,
+    title: 'IB Supreme',
+    subtitle: 'The extra hero your cravings wanted.',
+    description: 'A signature stacked burger with beef, cheese, egg, salad and sauce for a richer hero look.',
+    image: '/menu/cutouts/04 ISLA BURGER - IBI SUPREME def.png',
+    imageFit: 'contain',
+    theme: {
+      background: 'radial-gradient(ellipse at top right, #FFE7BA 0%, #FFF8E7 43%, #FDF2F8 86%)',
+      primary: '#9F1239',
+      secondary: '#EA580C',
+      accent: '#F59E0B',
+      text: '#1A1206',
+      glow: 'rgba(159, 18, 57, 0.36)'
+    },
+    cta: 'Order Now',
+    ctaTarget: 'uber'
   }
 ];
 
@@ -303,14 +366,60 @@ export const hours = [
 ];
 
 export const galleryImages = [
-  'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
-  'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
-  'https://images.unsplash.com/photo-1518013431117-eb1465fa5752',
-  'https://images.unsplash.com/photo-1650939986300-ce9609921fa7',
-  'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
-  'https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg',
-  'https://images.unsplash.com/photo-1608039755401-742074f0548d',
-  'https://images.unsplash.com/photo-1567620832903-9fc6debc209f'
+  {
+    src: '/menu/mix.jpeg',
+    name: 'Mix Grill',
+    tag: "Chef's Special",
+    size: 'big'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+    name: 'Smash Burger',
+    tag: 'Signature',
+    size: 'big'
+  },
+  {
+    src: '/menu/Naan Kabab.jpg',
+    name: 'Naan Kabab',
+    tag: 'Halal Grill',
+    size: 'normal'
+  },
+  {
+    src: '/menu/Taco 1.jpeg',
+    name: 'Grilled Tacos',
+    tag: 'Fan Favorite',
+    size: 'normal'
+  },
+  {
+    src: '/menu/buritto.jpg',
+    name: 'Loaded Burrito',
+    tag: 'Hearty',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
+    name: 'Crispy Tenders',
+    tag: 'Crunchy',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
+    name: 'Fresh Tacos',
+    tag: 'Zesty',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f',
+    name: 'Buffalo Wings',
+    tag: 'Spicy',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg',
+    name: 'Foodie Moment',
+    tag: 'Shareworthy',
+    size: 'normal'
+  }
 ];
 
 export const businessInfo = {
