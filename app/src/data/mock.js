@@ -374,7 +374,7 @@ export const galleryImages = [
   },
   {
     src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
-    name: 'Smash Burger',
+    name: 'Cheese Burger',
     tag: 'Signature',
     size: 'big'
   },
@@ -397,26 +397,26 @@ export const galleryImages = [
     size: 'normal'
   },
   {
-    src: 'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
-    name: 'Crispy Tenders',
+    src: '/menu/02 ISLA BURGER - DOUBLE CHEESEBURGER def.jpg',
+    name: 'Cheese Burger',
     tag: 'Crunchy',
     size: 'normal'
   },
   {
-    src: 'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
-    name: 'Fresh Tacos',
+    src: '/menu/31 ISLA BURGER - SANDWICH NAAN KOFTA def.jpg',
+    name: 'Naan Kofta',
     tag: 'Zesty',
     size: 'normal'
   },
   {
-    src: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f',
-    name: 'Buffalo Wings',
+    src: '/menu/52 ISLA BURGER - KEBAB PALAU def.jpg',
+    name: 'Kebab Palau',
     tag: 'Spicy',
     size: 'normal'
   },
   {
-    src: 'https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg',
-    name: 'Foodie Moment',
+    src: '/menu/56 ISLA BURGER - SALADE AU POULET TANDOORI def.jpg',
+    name: 'Poulet Tandoori',
     tag: 'Shareworthy',
     size: 'normal'
   }
