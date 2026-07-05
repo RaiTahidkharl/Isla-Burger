@@ -366,14 +366,60 @@ export const hours = [
 ];
 
 export const galleryImages = [
-  'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
-  'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
-  'https://images.unsplash.com/photo-1518013431117-eb1465fa5752',
-  'https://images.unsplash.com/photo-1650939986300-ce9609921fa7',
-  'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
-  'https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg',
-  'https://images.unsplash.com/photo-1608039755401-742074f0548d',
-  'https://images.unsplash.com/photo-1567620832903-9fc6debc209f'
+  {
+    src: '/menu/mix.jpeg',
+    name: 'Mix Grill',
+    tag: "Chef's Special",
+    size: 'big'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+    name: 'Smash Burger',
+    tag: 'Signature',
+    size: 'big'
+  },
+  {
+    src: '/menu/Naan Kabab.jpg',
+    name: 'Naan Kabab',
+    tag: 'Halal Grill',
+    size: 'normal'
+  },
+  {
+    src: '/menu/Taco 1.jpeg',
+    name: 'Grilled Tacos',
+    tag: 'Fan Favorite',
+    size: 'normal'
+  },
+  {
+    src: '/menu/buritto.jpg',
+    name: 'Loaded Burrito',
+    tag: 'Hearty',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1579065497397-2824d41272ce',
+    name: 'Crispy Tenders',
+    tag: 'Crunchy',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1627564803215-ad55bad5c5ea',
+    name: 'Fresh Tacos',
+    tag: 'Zesty',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f',
+    name: 'Buffalo Wings',
+    tag: 'Spicy',
+    size: 'normal'
+  },
+  {
+    src: 'https://images.pexels.com/photos/37052503/pexels-photo-37052503.jpeg',
+    name: 'Foodie Moment',
+    tag: 'Shareworthy',
+    size: 'normal'
+  }
 ];
 
 export const businessInfo = {

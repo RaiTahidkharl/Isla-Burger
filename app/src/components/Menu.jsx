@@ -765,9 +765,9 @@ const Menu = ({ onAddToCart }) => {
   const bestSellers = useMemo(() => [
     localizedMenuItems.burgers[1],
     localizedMenuItems.palau[0],
-    localizedMenuItems.chicken[1],
     localizedMenuItems.naan[1],
-    localizedMenuItems.wraps[2]
+    localizedMenuItems.wraps[2],
+    localizedMenuItems.chicken[1]
   ], [localizedMenuItems]);
 
   const filteredItems = useMemo(() => {
