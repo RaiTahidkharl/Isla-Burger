@@ -435,5 +435,8 @@ export const businessInfo = {
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Isla+Burger+7+Rue+d%27Italie+Nice',
   mapsEmbed: 'https://www.google.com/maps?q=7+Rue+d%27Italie,+06000+Nice,+France&output=embed',
   uberEats: 'https://www.ubereats.com/fr/store/burger-avenue/mZVUmE5CVG6suLGI28MISg?utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnGsK8kmqW2uSOB',
-  uberEatsStore: 'Burger Avenue'
+  uberEatsStore: 'Burger Avenue',
+  IslaTiktok: 'https://vt.tiktok.com/ZSXhkExfP/',
+  IslaInstagram: 'https://www.instagram.com/islaburger10?utm_source=qr',
+  IslaFacebook: 'https://www.facebook.com/share/18xF6huP1P/?mibextid=wwXIfr',
 };
